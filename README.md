@@ -3,10 +3,10 @@ deper
 
 deper is a simple but quite powerful dependecy injector.
 
-The problem it tries to solve is that in node.js all your internal submodules require all
-its dependecies. This is trublesome when you can't change your dependencies when you for
+The problem it tries to solve is that in node.js all your internal modules requires all
+its dependecies. This is troublesome when you can't change your dependencies when you for
 example want to mock something out in a test or switch an implemention without the need
-of changing the naming in every file that uses that dependency.
+to change the naming in every file that uses that dependency.
 
 ##Usage
 
