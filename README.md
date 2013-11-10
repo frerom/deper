@@ -11,15 +11,15 @@ of changing the naming in every file that uses that dependency.
 ##Usage
 
 ###randomizer.js
-´´´
+```
 var deper = require("deper");
 module.exports = deper(function (handsomeUtil) {
   return handsomeUtil.random(1, 10);
 });
-´´´
+```
 
 ###main.js
-´´´
+```
 var _ = require("lodash");
 var ranomizer = require("./randomizer")(["handsomeUtil"], _);
-´´´
+```
