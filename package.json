@@ -1,0 +1,33 @@
+{
+  "name": "deper",
+  "version": "0.0.1",
+  "description": "A node.js dependency injector",
+  "main": "lib/deper.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/frerom/deper.git"
+  },
+  "keywords": [
+    "dependency",
+    "injection"
+  ],
+  "author": {
+    "name": "Fredrik Román",
+    "email": "roman.fredrik@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frerom/deper/issues"
+  },
+  "devDependencies": {
+    "mocha": "~1.14.0",
+    "chai": "~1.8.1"
+  }
+}
