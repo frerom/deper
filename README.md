@@ -14,12 +14,17 @@ to change the naming in every file that uses that dependency.
 ```
 var deper = require("deper");
 module.exports = deper(function (handsomeUtil) {
-  return handsomeUtil.random(1, 10);
+  return {
+    random: function () {
+      handsomeUtil.random(1, 10);
+    }
+  };
 });
 ```
 
 ###main.js
 ```
 var _ = require("lodash");
-var ranomizer = require("./randomizer")(["handsomeUtil"], _);
+var randomizer = require("./randomizer")(["handsomeUtil"], _);
+var randomNumber = randomizer.random();
 ```
