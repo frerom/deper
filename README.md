@@ -28,7 +28,7 @@ var randomizer = require("./randomizer")(["_"], _);
 var randomNumber = randomizer.random();
 ```
 ##Default Dependencies
-If a dependency isn't provided by the user, it will default to require
+If a dependency isn't provided by the user, it will default to require.
 
 ###randomizer.js
 ```
@@ -52,7 +52,7 @@ randomNumber = randomizer.random();
 ##Setting Base Path
 If you want to default to your own project modules you will need to provide a base path for deper.
 
-This is typacilly done in your main script.
+This is typically done in your main script.
 
 ###main.js
 ```
