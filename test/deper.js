@@ -1,8 +1,8 @@
 var expect = require("chai").expect;
-var deper = require("../lib/deper.js");
 
 describe("deper", function () {
   it("returns a function that sets the given functions arguments", function () {
+    var deper = require("../lib/deper.js");
     var func = function (c, d) {
       return c + d;
     };
@@ -11,26 +11,33 @@ describe("deper", function () {
     expect(res).to.equal("hello world");
   });
 
-  it("defaults to require if a dependency isn't injected", function () {
+  it("defaults to require if a dependency isn't injected, relative to the given base path", function () {
+    var deper = require("../lib/deper.js");
+    deper.config({
+      basePath: __dirname + "/"
+    });
+
     var res;
-    var func = function (retrieveArguments) {
-      res = retrieveArguments(function (hello, world) {});
+    var func = function (testData) {
+      res = testData;
     };
-    deper(["../lib/argumentRetriever"], func)();
-    expect(res).to.deep.equal(["hello", "world"]);
+    deper(["testModule"], func)();
+    expect(res).to.equal("hello world");
   });
 
   it("throws an exception if a dependency name array isn't provided", function () {
+    var deper = require("../lib/deper.js");
     expect(deper.bind(null)).to.throw();
   });
 
   it("throws an exception if the argument isn't a function", function () {
+    var deper = require("../lib/deper.js");
     expect(deper.bind(null, [], "hello")).to.throw();
   });
 
   it("throws an exception if the given dependecies doesn't match the required dependencies", function () {
-    var func = function (hello, world) {
-    };
+    var deper = require("../lib/deper.js");
+    var func = function (hello, world) {};
     expect(deper([], func).bind(null, ["helo", "word"], "hello", "world")).to.throw();
   });
 });
