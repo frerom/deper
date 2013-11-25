@@ -40,4 +40,24 @@ describe("deper", function () {
     var func = function (hello, world) {};
     expect(deper([], func).bind(null, ["helo", "word"], "hello", "world")).to.throw();
   });
+
+  it("can set default dependencies in the config", function () {
+    var deper = require("../lib/deper.js");
+    deper.config({
+      basePath: __dirname + "/",
+      defaults: {
+        "_": "testModule.js"
+      }
+    });
+
+    var res;
+
+    var func = function (_) {
+      res = _;
+    };
+
+    deper(["_"], func)();
+
+    expect(res).to.equal("hello world");
+  });
 });
