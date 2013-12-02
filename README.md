@@ -15,7 +15,7 @@ var deper = require("deper");
 module.exports = deper(["_"], function (_) {
   return {
     random: function () {
-      _.random(1, 10);
+      return _.random(1, 10);
     }
   };
 });
@@ -36,7 +36,7 @@ var deper = require("deper");
 module.exports = deper(["lodash"], function (_) {
   return {
     random: function () {
-      _.random(1, 10);
+      return _.random(1, 10);
     }
   };
 });
@@ -67,7 +67,7 @@ var deper = require("deper");
 module.exports = deper(["src/myOwnUtilityBelt"], function (_) {
   return {
     random: function () {
-      _.random(1, 10);
+      return _.random(1, 10);
     }
   };
 });
@@ -95,7 +95,7 @@ var deper = require("deper");
 module.exports = deper(["_"], function (_) {
   return {
     random: function () {
-      _.random(1, 10);
+      return _.random(1, 10);
     }
   };
 });
