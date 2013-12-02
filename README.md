@@ -27,13 +27,13 @@ var _ = require("lodash");
 var randomizer = require("./randomizer")(["_"], _);
 var randomNumber = randomizer.random();
 ```
-##Default Dependencies
+##Defaults to require
 If a dependency isn't provided by the user, it will default to require.
 
 ###randomizer.js
 ```
 var deper = require("deper");
-module.exports = deper(["lodash", function (_) {
+module.exports = deper(["lodash"], function (_) {
   return {
     random: function () {
       _.random(1, 10);
@@ -64,7 +64,35 @@ deper.config({
 ###randomizer
 ```
 var deper = require("deper");
-module.exports = deper(["src/myOwnUtilityBelt", function (_) {
+module.exports = deper(["src/myOwnUtilityBelt"], function (_) {
+  return {
+    random: function () {
+      _.random(1, 10);
+    }
+  };
+});
+```
+
+##Setting default dependencies
+###main.js
+```
+var deper = require("deper");
+deper.config({
+  basePath: __dirname + "/",
+  defaults: [
+    {
+      name: "_",
+      module: "src/myOwnUtilityBelt"
+    }
+  ]
+});
+
+var randomizer = require("randomizer")();
+```
+###randomizer
+```
+var deper = require("deper");
+module.exports = deper(["_"], function (_) {
   return {
     random: function () {
       _.random(1, 10);
