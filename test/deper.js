@@ -21,7 +21,7 @@ describe("deper", function () {
     var func = function (testData) {
       res = testData;
     };
-    deper(["testModule"], func)();
+    deper(["testModule.js"], func)();
     expect(res).to.equal("hello world");
   });
 
@@ -43,11 +43,15 @@ describe("deper", function () {
 
   it("can set default dependencies in the config", function () {
     var deper = require("../lib/deper.js");
+
     deper.config({
       basePath: __dirname + "/",
-      defaults: {
-        "_": "testModule.js"
-      }
+      defaults: [
+        {
+          name: "_",
+          module: "testModule.js"
+        }
+      ]
     });
 
     var res;
