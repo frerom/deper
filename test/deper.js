@@ -25,6 +25,16 @@ describe("deper", function () {
     expect(res).to.equal("hello world");
   });
 
+  it("defaults to install node modules", function () {
+    var deper = require("../lib/deper.js");
+    var lodash;
+    var func = function (_) {
+      lodash = _;
+    };
+    deper(["lodash"], func)();
+    expect(lodash.name).to.eql("lodash");
+  });
+
   it("throws an exception if a dependency name array isn't provided", function () {
     var deper = require("../lib/deper.js");
     expect(deper.bind(null)).to.throw();
